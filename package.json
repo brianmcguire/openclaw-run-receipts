@@ -1,0 +1,57 @@
+{
+  "name": "@brianmcguire/openclaw-run-receipts",
+  "version": "0.1.0",
+  "description": "Verify the output of an OpenClaw automation in a session dashboard.",
+  "type": "module",
+  "author": "Brian McGuire",
+  "license": "MIT",
+  "files": [
+    "dist/index.js",
+    "dist/receipt.js",
+    "dist/control-ui",
+    "openclaw.plugin.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && esbuild src/control-ui.ts --bundle --format=esm --minify --target=es2022 --outdir=dist/control-ui",
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": "^24.16.0 || >=26.1.0"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.11.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "esbuild": "0.28.2",
+    "openclaw": "2026.11.2",
+    "typescript": "^5.9.0"
+  },
+  "openclaw": {
+    "extensions": [
+      "./dist/index.js"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.11.2"
+    },
+    "build": {
+      "openclawVersion": "2026.11.2"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianmcguire/openclaw-run-receipts.git"
+  },
+  "homepage": "https://github.com/brianmcguire/openclaw-run-receipts#readme",
+  "bugs": {
+    "url": "https://github.com/brianmcguire/openclaw-run-receipts/issues"
+  },
+  "keywords": [
+    "openclaw",
+    "automation",
+    "dashboard",
+    "verification"
+  ]
+}

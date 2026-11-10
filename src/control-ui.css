@@ -1,0 +1,59 @@
+.run-receipts {
+  display: grid;
+  gap: 0.65rem;
+  padding: 0.85rem;
+  overflow-wrap: anywhere;
+}
+
+.run-receipts__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.run-receipts__toolbar strong[data-state="verified"] {
+  color: var(--ok, currentColor);
+}
+
+.run-receipts__toolbar strong[data-state="stale"],
+.run-receipts__toolbar strong[data-state="missing"] {
+  color: var(--warn, currentColor);
+}
+
+.run-receipts button {
+  border: 1px solid var(--border, currentColor);
+  border-radius: 0.4rem;
+  background: transparent;
+  color: inherit;
+  padding: 0.4rem 0.6rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.run-receipts button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.run-receipts p,
+.run-receipts dl,
+.run-receipts dd {
+  margin: 0;
+}
+
+.run-receipts dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  gap: 0.65rem;
+}
+
+.run-receipts dt {
+  font-size: 0.85em;
+  color: var(--muted, currentColor);
+}
+
+.run-receipts dd {
+  font-variant-numeric: tabular-nums;
+}

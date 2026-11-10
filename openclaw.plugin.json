@@ -1,0 +1,46 @@
+{
+  "id": "run-receipts",
+  "name": "Run Receipts",
+  "description": "Verify the output of an OpenClaw automation in a session dashboard.",
+  "version": "0.1.0",
+  "categories": [
+    "productivity"
+  ],
+  "activation": {
+    "onStartup": true
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "jobId": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9_-]{1,128}$"
+      },
+      "sessionKey": {
+        "type": "string",
+        "pattern": "^agent:[^:]+:.+$",
+        "maxLength": 512
+      }
+    },
+    "dependentRequired": {
+      "jobId": [
+        "sessionKey"
+      ],
+      "sessionKey": [
+        "jobId"
+      ]
+    }
+  },
+  "controlUi": {
+    "entry": "dist/control-ui/control-ui.js",
+    "styles": [
+      "dist/control-ui/control-ui.css"
+    ]
+  },
+  "contracts": {
+    "gatewayMethodDispatch": [
+      "authenticated-request"
+    ]
+  }
+}
